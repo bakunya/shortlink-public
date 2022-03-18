@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html, body {
+        scroll-behavior: smooth;
+    }    
+}
+
+@layer components {
+    .button-main {
+        @apply outline-none border p-4 text-lg border-black rounded shadow-solid-black hover:shadow-none focus:shadow-none transition duration-300;
+    }
+}
+
+@layer utilities {
+    @keyframes rotate-left-right {
+        0% {
+            transform: rotate(15deg);
+        }
+        50% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(15deg);
+        }
+    }
+
+    .animate-rotate-left-right {
+        animation-name: rotate-left-right;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+    }
+
+    .bgcolor-main {
+        @apply bg-emerald-300;
+    }
+
+    .color-main {
+        @apply text-emerald-300;
+    }
+}
