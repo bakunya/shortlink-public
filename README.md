@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Preview [shortink.tech](https://shortink.tech)
+
 ## Getting Started
 
 1. Create your [firebase](https://firebase.google.com/) project and generate then download **firebase admin config.**
