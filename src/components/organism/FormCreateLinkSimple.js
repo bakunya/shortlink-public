@@ -13,7 +13,7 @@ import { selfHost } from "@/config/constant"
 const FormCreateLink = ({ onSubmit, isLoading }) => {
     const formik = useFormik({
         initialValues: {
-            defaultLink: '',
+            defaultLink: 'https://',
             shortLink: `${selfHost}/`
         },
         validateOnChange: true,
@@ -27,6 +27,14 @@ const FormCreateLink = ({ onSubmit, isLoading }) => {
             onSubmit(newVal)
         }
     })
+
+    const handleChangeDefaultLink = useCallback(e => {
+        if(e.target.value === 'https:/') return
+        if(!e.target.value) e.target.value = `https://`
+        if(!e.target.value.includes(`https://`)) e.target.value = `https://`
+        formik.handleChange(e)
+
+    }, [formik.handleChange])
 
     const handleChangeShortLink = useCallback(e => {
         if(e.target.value === selfHost) return
@@ -42,7 +50,7 @@ const FormCreateLink = ({ onSubmit, isLoading }) => {
                 placeholder="https://...." 
                 title="Type your ugly link."
                 name="defaultLink"
-                onChange={formik.handleChange}
+                onChange={handleChangeDefaultLink}
                 value={formik.values.defaultLink}
                 error={formik?.errors?.defaultLink}
             />
